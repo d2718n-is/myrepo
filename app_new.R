@@ -10,10 +10,7 @@ sheet_ID <- "https://docs.google.com/spreadsheets/d/1_ZmzrymvanAdRIpk5yvmdRko4W2
 qtyForDelivFun <- function(infoDt, DFin){
   vecPN <- which(DFin$`P/N`== DFin$`P/N`[infoDt$row])
   value <- trunc(ifelse(infoDt$value=="",0,infoDt$value))
-  if(value < 0 | value ==""){
-    infoDt$value <- 0
-    value <- 0
-  }
+  if(value < 0) value <- 0
   val_adj <- 0
   for (vrbl in vecPN) {
     vec1 <- c(vrbl,
